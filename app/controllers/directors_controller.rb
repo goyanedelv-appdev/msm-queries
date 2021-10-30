@@ -9,6 +9,17 @@ class DirectorsController < ApplicationController
   def wisest
     @oldest = Director.where.not({:dob =>nil}).order({ :dob => :asc}).at(0)
     
-    render({ :template => "director_templates/index.html.erb"})
+    render({ :template => "director_templates/eldest.html.erb"})
+  end
+
+  def director_details
+    
+    the_id = params.fetch("an_id")
+
+    @the_director = Director.where({ :id => the_id  }).at(0)
+    
+    @filmography = Movie.where({ :director_id => the_id })
+
+    render({ :template => "director_templates/show.html.erb"})
   end
 end
