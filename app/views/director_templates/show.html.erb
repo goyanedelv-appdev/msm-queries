@@ -26,7 +26,7 @@
     Dob
   </dt>
   <dd>
-    <%= @the_director.dob.strftime("%B %e, %Y")%>
+    <%= @the_director.dob.strftime("%Y-%m-%d")%>
   </dd>
 
   <dt>
@@ -82,7 +82,7 @@
 
     </td>
     <td>
-      <a href="">
+      <a href="/movies/<%= a_film.id %>">
         Show details
       </a>
     </td>
